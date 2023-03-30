@@ -8,17 +8,22 @@
 
 char *rot13(char *s)
 {
+	char part1[52] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
+	char part2[52] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
+
 	int i;
-	
-	char s1[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-	char s2[] = "nopqrstuvwxyzabcdefghijklm";
+	int j = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if ((s[i] > 64 && s[i] < 91) || (s[i] > 96 && s[i] < 123))
+
+		for (j = 0; part1[j] != '\0'; j++)
 		{
-			s[i] = (s[i] - 65 > 25) ?
-				s2[s[i] - 97] : s1[s[i] - 65];
+			if (s[i] == part1[j])
+			{
+				s[i] = part2[j];
+				break;
+			}
 		}
 	}
 	return (s);
