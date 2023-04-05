@@ -14,7 +14,7 @@ int helper(int i, int n)
 	if (n % i != 0 && i < n)
 		return (helper(i + 1, n));
 	else
-		return(1);
+		return (1);
 }
 
 /**
