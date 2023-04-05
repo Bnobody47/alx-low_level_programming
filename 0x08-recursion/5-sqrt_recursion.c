@@ -2,7 +2,7 @@
 
 /**
  * helper - helper finction
- * @c: number 
+ * @c: number
  * @i: increment
  * Return: return -1 if no root
  */
