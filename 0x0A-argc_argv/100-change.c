@@ -22,28 +22,22 @@ int main(int argc, char *argv[])
 			printf("0\n");
 			return (1);
 		}
-
 		cash = atoi(argv[argc - 1]);
-
 		while (cash > 0)
 		{
 			if (cash % 25 == 0)
 			{
 				cash -= 25;
-			}
-			else if (cash % 10 == 0)
+			} else if (cash % 10 == 0)
 			{
 				cash -= 10;
-			}
-			else if (cash % 5 == 0)
+			} else if (cash % 5 == 0)
 			{
 				cash -= 5;
-			}
-			else if (cash % 2 == 0)
+			} else if (cash % 2 == 0)
 			{
 				cash -= 2;
-			}
-			else
+			} else
 			{
 				cash--;
 			}
