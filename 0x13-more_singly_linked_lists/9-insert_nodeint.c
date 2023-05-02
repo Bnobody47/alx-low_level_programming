@@ -4,9 +4,9 @@
 #include <string.h>
 
 /**
- * insert_nodeint_at_index - a function that inserts a new node at a given position
+ * insert_nodeint_at_index - a function that inserts a new node position
  * @head: the first node
- * @idx: is the index of the list where the new node should be added. Index starts at 0
+ * @idx: is the index of the list
  * @n: number
  * Return: value of a node
  */
