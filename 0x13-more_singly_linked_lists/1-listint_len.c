@@ -4,7 +4,7 @@
 #include <string.h>
 
 /**
- * listint_len - a function that returns the number of elements in a linked listint_t
+ * listint_len - a function that returns the number of elements
  * @h: a pointer
  * Return: the number of nodes
  */
