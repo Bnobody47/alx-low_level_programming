@@ -8,45 +8,44 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *tmp, *new;
-	unsigned int dex = 1;
+	unsigned int i = 0;
+	dlistint_t *new_head = malloc(sizeof(dlistint_t));
+	dlistint_t *tmp = *h;
+	dlistint_t *chekernull = *h;
 
-	tmp = *h;
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
-		return (NULL);
-	new->n = n;
-	new->prev = NULL;
-	new->next = NULL;
-	if ((*h) == NULL)
+	if (h == NULL)
+		return (0);
+	if (new_head == NULL)
+	{ free(new_head);
+		return (0); }
+	if (idx > 0)
 	{
-		if (idx == 0)
+		for (i = 0 ; i < idx ; i++)
 		{
-			*h = new;
-			return (new);
+			if (chekernull->next == NULL)
+			{
+				return (NULL);
+			}
+			if ((i + 1) == idx)
+			{
+				new_head->n = n;
+				new_head->next = (tmp)->next;
+				new_head->prev = tmp;
+				(tmp)->next = new_head;
+				if (tmp != NULL)
+					tmp->prev = new_head;
+				return (new_head);
+			}
+			tmp = (tmp)->next;
 		}
-		return (NULL);
 	}
-	if (idx == 0)
-	{
-		new->next = *h;
-		(*h)->prev = new;
-		*h = new;
-		return (new);
-	}
-	while (tmp->next != NULL && dex != idx)
-	{
-		tmp = tmp->next;
-		dex++;
-	}
-	if (dex == idx)
-	{
-		new->prev = tmp;
-		new->next = tmp->next;
-		if (tmp->next != NULL)
-			tmp->next->prev = new;
-		tmp->next = new;
-		return (new);
-	}
+	else if (idx == 0)
+	{ new_head->n = n;
+		new_head->next = (tmp);
+		new_head->prev = NULL;
+		if (*h != NULL)
+			(*h)->prev = new_head;
+		(*h) = new_head;
+		return (new_head); }
 	return (NULL);
 }
